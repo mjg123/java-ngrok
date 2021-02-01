@@ -27,7 +27,6 @@ public class NgrokTest {
     @Test
     public void createAndFetchTunnelDetails() {
         TunnelDetails tunnel = client.connect("test-tunnel", TunnelProtocol.HTTP, 8080);
-        System.out.println(tunnel.publicUrl);
     }
 
     @Test
