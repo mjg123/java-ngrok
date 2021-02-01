@@ -1,6 +1,5 @@
 package lol.gilliard.ngrok;
 
-import lol.gilliard.ngrok.client.TunnelDefinition;
 import lol.gilliard.ngrok.client.TunnelDetails;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -99,7 +98,7 @@ public class NgrokTest {
 
         String tunnelName = "builder pattern tunnel";
 
-        client.builder()
+        client.build()
             .http()
             .port(8080)
             .name(tunnelName)

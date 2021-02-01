@@ -115,7 +115,7 @@ public class NgrokClient {
         process.destroy();
     }
 
-    public TunnelBuilder builder() {
+    public TunnelBuilder build() {
         return new TunnelBuilder(this);
     }
 }

@@ -29,8 +29,15 @@ System.out.println(tunnel.publicUrl);
 
 This will print something like: `https://54ef8c5a6043.ngrok.io` - a public URL which will tunnel traffic to `localhost:8080`.
 
-Alternatively builder-pattern :
+Alternatively builder-pattern:
 
+```java
+client.build()
+      .http()
+      .port(8080)
+      .name("my tunnel")
+      .connect();
+```
 
 
 ### Stopping tunnels
