@@ -29,7 +29,7 @@ public class ProcessManagementTest {
 
     @Test
     public void ngrokDoesntSupplyCorrectOutput(){
-        // this will happen if it can't get to ngrok.com
+        // this will happen if it can't get to ngrok servers, for example
         assertThrows(NgrokException.class, () ->
             Ngrok.startClient("yes"));
     }

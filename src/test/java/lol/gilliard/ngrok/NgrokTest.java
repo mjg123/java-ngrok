@@ -141,7 +141,7 @@ public class NgrokTest {
     }
 
     @Test
-    public void connectAfterShutdownShouldFailGracefully(){
+    public void connectAfterShutdownShouldFailWithException(){
         client.shutdown();
 
         assertThrows(NgrokException.class, () ->

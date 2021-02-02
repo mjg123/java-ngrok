@@ -1,19 +1,10 @@
-# This workflow will build a Java project with Maven
-# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
-
 name: Java CI with Maven
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [push, pull_request]
 
 jobs:
-  build:
-
+  tests-linux:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 8
@@ -27,5 +18,22 @@ jobs:
         mkdir -p "$HOME/.local/bin"
         mv ngrok "$HOME/.local/bin"
         echo "$HOME/.local/bin" >> $GITHUB_PATH
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+
+  tests-windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: install ngrok
+      run: |
+        curl 'https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip' --output ngrok.zip
+        unzip ngrok.zip
+        mkdir $HOME/ngrok
+        mv ngrok.exe c:/windows/
     - name: Build with Maven
       run: mvn -B package --file pom.xml

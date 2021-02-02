@@ -6,11 +6,15 @@ import lol.gilliard.ngrok.client.TunnelDefinition;
 import lol.gilliard.ngrok.client.TunnelDetails;
 import lol.gilliard.ngrok.client.TunnelDetailsList;
 import okhttp3.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.List;
 
 public class NgrokClient {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(NgrokClient.class);
 
     public static final ObjectMapper MAPPER = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
@@ -112,7 +116,13 @@ public class NgrokClient {
     }
 
     public void shutdown(){
-        process.destroy();
+        try {
+            process.destroy(); // polite request
+            process.waitFor(); // blocks until the process is gone
+
+        } catch (InterruptedException e) {
+            throw new NgrokException("Interrupted while waiting for ngrok to shut down", e);
+        }
     }
 
     public TunnelBuilder build() {
