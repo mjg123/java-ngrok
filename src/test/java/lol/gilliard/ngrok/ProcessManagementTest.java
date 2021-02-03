@@ -27,11 +27,4 @@ public class ProcessManagementTest {
         assertTrue(Ngrok.getVersion().length() > 0);
     }
 
-    @Test
-    public void ngrokDoesntSupplyCorrectOutput(){
-        // this will happen if it can't get to ngrok servers, for example
-        assertThrows(NgrokException.class, () ->
-            Ngrok.startClient("yes"));
-    }
-
 }

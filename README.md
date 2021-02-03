@@ -1,6 +1,6 @@
 # ngrok4j
 
-![CI badge](https://github.com/mjg123/ngrok4j/workflows/Linux%20and%20Windows%20Tests/badge.svg)
+![CI badge](https://github.com/mjg123/ngrok4j/workflows/Linux%20Windows%20and%20MacOS%20Tests/badge.svg)
 
 [ngrok](https://ngrok.com/) is a command-line tool for creating public URLs to local servers. 
 

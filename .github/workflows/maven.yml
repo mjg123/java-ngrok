@@ -1,4 +1,4 @@
-name: Linux and Windows Tests
+name: Linux Windows and MacOS Tests
 
 on: [push, pull_request]
 
@@ -20,6 +20,24 @@ jobs:
         echo "$HOME/.local/bin" >> $GITHUB_PATH
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+
+  tests-macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: install ngrok
+        run: |
+          wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-darwin-amd64.zip
+          unzip ngrok-stable-darwin-amd64.zip
+          mkdir -p "$HOME/.local/bin"
+          mv ngrok "$HOME/.local/bin"
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
 
   tests-windows:
     runs-on: windows-latest
