@@ -1,4 +1,4 @@
-name: Java CI with Maven
+name: Linux and Windows Tests
 
 on: [push, pull_request]
 
