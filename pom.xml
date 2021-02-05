@@ -81,4 +81,21 @@
         </plugins>
     </build>
 
+
+    <!-- config for creating releases -->
+    <scm>
+        <developerConnection>scm:git:https://github.com/mjg123/ngrok4j.git</developerConnection>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub</name>
+            <url>https://maven.pkg.github.com/mjg123/ngrok4j</url>
+        </repository>
+    </distributionManagement>
+
+
+
+
 </project>
