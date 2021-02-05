@@ -4,7 +4,7 @@
 
     <groupId>lol.gilliard</groupId>
     <artifactId>ngrok4j</artifactId>
-    <version>1.1</version>
+    <version>1.2-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -83,7 +83,7 @@
     <!-- config for creating releases -->
     <scm>
         <developerConnection>scm:git:https://github.com/mjg123/ngrok4j.git</developerConnection>
-        <tag>ngrok4j-1.1</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <distributionManagement>
