@@ -83,8 +83,8 @@
     <!-- config for creating releases -->
     <scm>
         <developerConnection>scm:git:https://github.com/mjg123/ngrok4j.git</developerConnection>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
 
     <distributionManagement>
         <repository>
