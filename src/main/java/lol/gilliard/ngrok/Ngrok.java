@@ -73,7 +73,7 @@ public class Ngrok {
             String ngrokWebServiceUrl =
                 CompletableFuture
                     .supplyAsync(() -> waitForWebServiceUrl(ngrokProcess))
-                    .get(5, TimeUnit.SECONDS);
+                        .replace("4041", "4040");
 
             if (ngrokWebServiceUrl == null) {
                 ngrokProcess.destroy();
